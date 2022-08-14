@@ -2,15 +2,12 @@ package com.spring.demo.initDB;
 
 import com.spring.demo.model.Country;
 import com.spring.demo.model.User;
-import com.spring.demo.repository.CountryRepository;
-import com.spring.demo.repository.UserRepository;
 import com.spring.demo.service.CountryService;
 import com.spring.demo.service.UserService;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
