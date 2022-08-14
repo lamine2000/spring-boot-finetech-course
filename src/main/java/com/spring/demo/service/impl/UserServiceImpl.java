@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    //dependancy injection
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

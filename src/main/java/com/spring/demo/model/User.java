@@ -11,7 +11,10 @@ public class User {
     private String login;
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //fetchType.EAGER: the fetching of a User from the database DOES imply fetching the country attribute
+    //the country attribute is got by performing a join with the countryId field (userTable)
+    //All the users in the database have to have a a country assigned to them
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "countryId", nullable = false)
     private Country country;
 
@@ -54,10 +57,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "\nUser{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                '}';
+                ", country='" + country + '\'' +
+                "}\n";
     }
 }

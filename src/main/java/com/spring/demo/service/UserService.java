@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
+    //the functionnalities to be accessible and used in our project
+
     public User create(User user);
 
     public List<User> createAll(Iterable<User> users);

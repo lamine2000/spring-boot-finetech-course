@@ -12,15 +12,20 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @Nullable
+    @Nullable //description is not mandatory
     private String description;
-    private String code;
+
+    private String code; //Examples: sn, fr
     private String currency;
 
+    //map by the country attribute of User class
+    //fetching data in a lazy way: fetching country does not imply fetching it's users
+    //all the operations to the Country table are cascaded to the users
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<User> users;
 
-    public Country(String name, String description, String code, String currency) {
+
+    public Country(String name, @Nullable String description, String code, String currency) {
         this.name = name;
         this.description = description;
         this.code = code;
@@ -42,7 +47,7 @@ public class Country {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(@Nullable String description) {
         this.description = description;
     }
 
@@ -70,4 +75,13 @@ public class Country {
         this.users = users;
     }
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", code='" + code + '\'' +
+                ", currency='" + currency + '\'' +
+                '}';
+    }
 }

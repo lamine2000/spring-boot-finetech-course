@@ -12,6 +12,7 @@ import java.util.Optional;
 public class CountryServiceImpl implements CountryService {
     private final CountryRepository countryRepository;
 
+    //dependancy injection
     public CountryServiceImpl(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
@@ -21,6 +22,22 @@ public class CountryServiceImpl implements CountryService {
         return countryRepository.save(country);
     }
 
+    //The Iterable<?> interface is extended by the Collection<?> interface
+    //which is extended bythe List<?> interface
+    //which is implemented by the following classes:
+    /*
+        AbstractList
+        AbstractSequentialList
+        ArrayList
+        AttributeList
+        CopyOnWriteArrayList
+        LinkedList
+        RoleList
+        RoleUnresolvedList
+        Stack
+        Vector
+        ...
+    */
     @Override
     public List<Country> createAll(Iterable<Country> countries) {
         return countryRepository.saveAll(countries);

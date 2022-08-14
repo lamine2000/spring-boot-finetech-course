@@ -1,3 +1,4 @@
+#choosing environment
 spring:
   profiles:
     active: prod
